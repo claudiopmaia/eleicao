@@ -1,0 +1,17 @@
+/home/claudio/workspace/sistema-eleicao-web/src/main/java/com/eleicao/web/converter/CandidatoConverter.java
+/home/claudio/workspace/sistema-eleicao-web/src/main/java/com/eleicao/web/modelo/Candidato.java
+/home/claudio/workspace/sistema-eleicao-web/src/main/java/com/eleicao/web/dao/CandidatoDAO.java
+/home/claudio/workspace/sistema-eleicao-web/src/main/java/com/eleicao/web/util/jpa/EntityManagerProducer.java
+/home/claudio/workspace/sistema-eleicao-web/src/main/java/com/eleicao/web/util/jsf/FacesUtil.java
+/home/claudio/workspace/sistema-eleicao-web/src/main/java/com/eleicao/web/controller/PesquisaCandidatoBean.java
+/home/claudio/workspace/sistema-eleicao-web/src/main/java/com/eleicao/web/util/jpa/PersistenceProperties.java
+/home/claudio/workspace/sistema-eleicao-web/src/main/java/com/eleicao/web/service/NegocioException.java
+/home/claudio/workspace/sistema-eleicao-web/src/main/java/com/eleicao/web/util/ExecutorRelatorio.java
+/home/claudio/workspace/sistema-eleicao-web/src/main/java/com/eleicao/web/util/cdi/CDIServiceLocator.java
+/home/claudio/workspace/sistema-eleicao-web/src/main/java/com/eleicao/web/util/cdi/ViewContextExtension.java
+/home/claudio/workspace/sistema-eleicao-web/src/main/java/com/eleicao/web/controller/CadastroCandidatoBean.java
+/home/claudio/workspace/sistema-eleicao-web/src/main/java/com/eleicao/web/util/cdi/ViewScopedContext.java
+/home/claudio/workspace/sistema-eleicao-web/src/main/java/com/eleicao/web/service/CadastroCandidatoService.java
+/home/claudio/workspace/sistema-eleicao-web/src/main/java/com/eleicao/web/util/jpa/Transactional.java
+/home/claudio/workspace/sistema-eleicao-web/src/main/java/com/eleicao/web/util/jpa/TransactionInterceptor.java
+/home/claudio/workspace/sistema-eleicao-web/src/main/java/com/eleicao/web/controller/DetalhesCandidato.java

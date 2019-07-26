@@ -1,0 +1,79 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:o="http://omnifaces.org/ui">
+
+    <ui:define name="titulo">#{cadastroCandidatoBean.editando? 'Edição de Candidato' : 'Novo Candidadto' }</ui:define>
+    
+    <ui:define name="corpo">
+    	<f:metadata>
+			<o:viewParam name="candidato" value="#{cadastroCandidatoBean.candidato}" />
+		</f:metadata>
+    
+    	<h1>#{cadastroCandidatoBean.editando? 'Edição de Candidato' : 'Novo Candidadto' }</h1>
+    	
+    	<h:form id="frmCadastro">
+    		<p:messages id="messages" autoUpdate="true" closable="true" />
+
+	    	<p:toolbar style="margin-top: 20px">
+	    		<p:toolbarGroup>
+	    			<p:commandButton value="Salvar" id="botaoSalvar" ajax="false" action="#{cadastroCandidatoBean.salvar}" update="frmCadastro"/>
+	    		</p:toolbarGroup>
+	    		<p:toolbarGroup align="right">
+					<p:button value="Pesquisa" outcome="/candidato/PesquisaCandidatos.xhtml"/>
+				</p:toolbarGroup>
+				
+				
+	    	</p:toolbar>
+	    	
+	    	<h:panelGrid columns="2" id="painel" style="width: 100%; margin-top: 20px"
+	    			columnClasses="rotulo, campo">
+	    		<p:outputLabel value="Código" for="codigo"/>
+	    		<p:inputText id="codigo" size="20" maxlength="20" value="#{cadastroCandidatoBean.candidato.codigo}" readonly="true"/>
+	    		
+	    		<p:outputLabel value="Nome" for="nome"/>
+	    		<p:inputText id="nome" size="60" maxlength="80" value="#{cadastroCandidatoBean.candidato.nome}"/>
+	    		
+	    		<p:outputLabel value="Numero" for="numero"/>
+	    		<p:inputText id="numero" size="7" maxlength="7" value="#{cadastroCandidatoBean.candidato.numero}"/>
+	    		
+	    		<p:outputLabel value="Partido" for="partido"/>
+	    		<p:inputText id="partido" size="10" maxlength="10" value="#{cadastroCandidatoBean.candidato.partido}"/>
+	    		
+	    		<p:outputLabel value="Cargo" for="cargo"/>
+	    		<p:inputText id="cargo" size="20" maxlength="20" value="#{cadastroCandidatoBean.candidato.cargo}"/>
+	    		
+	    		<p:outputLabel value="Coligacao" for="coligacao"/>
+	    		<p:inputText id="coligacao" size="60" maxlength="80" value="#{cadastroCandidatoBean.candidato.coligacao}"/>
+	    		
+	    		<p:outputLabel value="Cidade" for="cidade"/>
+	    		<p:inputText id="cidade" size="50" maxlength="50" value="#{cadastroCandidatoBean.candidato.cidade}"/>
+	    		
+	    		<p:outputLabel value="Estado" for="estado"/>
+	    		<p:inputText id="estado" size="40" maxlength="40" value="#{cadastroCandidatoBean.candidato.estado}"/>
+	    		
+	    		<p:outputLabel value="Quantidade Votos" for="qtdVotos"/>
+	    		<p:inputText id="qtdVotos" size="10" maxlength="10" value="#{cadastroCandidatoBean.candidato.qtdVotos}"/>
+	    		
+	    		<p:outputLabel value="Ano Pleito" for="anoPleito"/>
+	    		<p:inputText id="anoPleito" size="60" maxlength="80" value="#{cadastroCandidatoBean.candidato.anoPleito}"/>
+	    		
+	    		<p:outputLabel value="Foto Candidato" for="fotoPolitico"/>
+	    		<p:inputText id="fotoPolitico" size="60" maxlength="80" value="#{cadastroCandidatoBean.candidato.fotoPolitico}"/>
+	    		
+	    		<p:outputLabel value="Data Nascimento" for="dataNascimento"/>
+	    		<p:inputText id="dataNascimento" size="10" maxlength="10" value="#{cadastroCandidatoBean.candidato.dataNascimento}"/>
+	    		
+	    		<h:outputLabel value="Foto" />
+	    		<p:fileUpload mode="advanced" label="Adicionar" auto="true" update="imagem" 
+			              fileUploadListener="#{cadastroCandidatoBean.upload}"/>
+	    		
+	    		<h:outputLabel>Imagem</h:outputLabel>
+	    		<h:graphicImage id="imagem" value="#{cadastroCandidatoBean.candidato.imagem}" width="120" height="100"/>
+	    	</h:panelGrid>
+    	</h:form>
+    </ui:define>
+</ui:composition>
