@@ -1,0 +1,53 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:o="http://omnifaces.org/ui">
+    
+<ui:define name="titulo">Pesquisa de Candiato</ui:define>
+
+<ui:define name="corpo">
+	<h1>Pesquisa de Candiatos</h1>
+	
+	<h:form id="frmPesquisa">
+		<p:messages id="messages" autoUpdate="true" closable="true"/>
+			<p:toolbar style="margin-top: 20px">	
+				<p:toolbarGroup >
+					<p:commandButton value="Novo" id="botaoNovo" action="/candidato/CadastroCandidato"/>
+				</p:toolbarGroup>
+			</p:toolbar>
+			
+			<p:dataTable id="candidatosTable" value="#{pesquisaCandidatoBean.candidatos}" var="candidato"
+						     style="magin-top: 20px" empytMessage="Nunhum candidato encontrado" rows="20">
+						     <p:column headerText="Codigo" style="text-align: center; width: 100px">
+						     		<h:outputText value="#{candidato.codigo}"/>					     
+						     </p:column>
+						     <p:column headerText="Nome">
+						     	<h:outputText value="#{candidato.nome}"/>
+						     </p:column>
+						     <p:column style="width: 100px; text-align: center;">
+						     	<p:button outcome="CadastroCandidato" icon="ui-icon-pencil" title="editar">
+						     		<f:param name="candidato" value="#{candidato.codigo}"/>
+						     	</p:button>
+						     	<p:commandButton icon="ui-icon-trash" title="Excluir" oncomplete="confirmacaoExclusao.show()"
+						     					process="@this" update=":frmPesquisa:confirmacaoExclusaoDialog">
+						     							<f:setPropertyActionListener target="#{pesquisaCandidatoBean.candidatoSelecionado}" value="#{candidato}"/>
+						     					</p:commandButton>
+						     </p:column>
+						  </p:dataTable>
+						  
+						      <p:confirmDialog id="confirmacaoExclusaoDialog" widgetVar="confirmacaoExclusao"
+						     					message="Tem certeza que deseja excluir o candidato #{pesquisaCandidatoBean.candidatoSelecionado.nome}?"
+						     					header="Exclusão de candidato" severity="alert">
+						     					<p:button value="Não" onclick="confirmacaoExclusao.hide(); return false;" />
+						     					<p:commandButton  value="Sim" update=":frmPesquisa:candidatosTable"
+						     									  onclick="confirmacaoExclusao.hide()" action="#{pesquisaCandidatoBean.excluir}"/>
+						     
+						     </p:confirmDialog>
+	
+		</h:form>
+
+	</ui:define>
+</ui:composition>
